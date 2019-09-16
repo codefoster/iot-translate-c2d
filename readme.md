@@ -15,19 +15,26 @@ Use the `az` cli to build a list of devices and fetch their keys.
     for n in {1..2}
     do
         az iot hub device-identity show -d device1$n -n <hub name> -o tsv --query '{"name":deviceId, "key":authentication.symmetricKey.primaryKey}';
-    done > devices.json
+    done > config.json
     ```
- 1. Format the document to be valid jason like below
+ 1. Format the newly created config.json to look like this...
 
     ``` json
-    [
-        { "name": "device1", "key": "..."},
-        { "name": "device2", "key": "..."},
-        { "name": "device3", "key": "..."}
-        ...
-    ]
+    {
+        "hubName": "<hub name>",
+        "servicePolicyKey": "<service policy key>",
+        "devices": [
+            { "name": "device1", "key": "..."},
+            { "name": "device2", "key": "..."},
+            { "name": "device3", "key": "..."}
+        ]
+    }
     ```
-    For this, I make extensive use of VS Code's multiline select using `CTRL+SHIFT+ALT+Down Arrow`.
+    Be sure to enter the name of your hub and get the primary key for the service policy in there too.
+    
+    This configuration will drive the rest of the project.
+
+    Tip: for this, I make extensive use of VS Code's multiline select using `CTRL+SHIFT+ALT+Down Arrow`.
 
 (service.ts)
 
