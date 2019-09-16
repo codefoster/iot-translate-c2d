@@ -1,0 +1,21 @@
+{
+  "name": "device",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/command-line-args": "^5.0.0",
+    "@types/node": "^12.7.5",
+    "azure-iot-device": "^1.11.2",
+    "azure-iot-device-amqp": "^1.10.3",
+    "azure-iothub": "^1.10.3",
+    "command-line-args": "^5.1.1",
+    "dotenv": "^8.1.0"
+  }
+}
