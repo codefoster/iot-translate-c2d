@@ -13,7 +13,7 @@ config.devices
             if (err) console.log(err)
             else {
                 client.on('message', msg => {
-                    client.complete(msg, () => console.log(`latency ${Date.now() - JSON.parse(new Buffer(msg.data).toString()).createTimestamp}`))
+                    client.complete(msg, () => console.log(`latency ${Date.now() - JSON.parse(Buffer.from(msg.data).toString()).createTimestamp}`))
                     client.complete(msg, () => console.log(`<-- cloud message received on behalf of ${d.name}`));
 
                     //this is where you would invoke custom logic to communicate downstream to the device
